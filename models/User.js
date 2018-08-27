@@ -25,13 +25,12 @@ const UserSchema = new Schema({
 });
 
 module.exports = User = mongoose.model('users', UserSchema);
-/**
 
+/**
  git status
  git add .
  git checkout -b 2.User_moodel
  git commit -m 'Creating User model'
  git pull
  git push --set-upstream origin 2.User_moodel
-
  * / */
