@@ -5,8 +5,10 @@
   "scripts": {
     "start": "webpack-dev-server --content-base public --debug --hot --output-pathinfo --watch --inline --port 9050",
     "api": "node server",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "dev": "concurrently \"npm run server\" \"npm run start\""
   },
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
@@ -24,7 +26,6 @@
     "redux": "^4.0.0",
     "validator": "^10.6.0"
   },
-  "proxy": "http://localhost:5000",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
@@ -32,6 +33,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.11",
+    "file-loader": "^2.0.0",
     "json-loader": "^0.5.7",
     "node-sass": "^4.9.1",
     "nodemon": "^1.18.3",
