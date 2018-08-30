@@ -8,11 +8,11 @@
     "server": "nodemon server.js",
     "dev": "concurrently \"npm run server\" \"npm run start\""
   },
-  "proxy": "http://localhost:5000",
   "dependencies": {
     "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "classnames": "^2.2.6",
     "express": "^4.16.3",
     "gravatar": "^1.6.0",
     "jsonwebtoken": "^8.3.0",
