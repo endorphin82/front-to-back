@@ -1,8 +1,20 @@
-import { createStore } from 'redux';
+import {applyMiddleware, createStore, compose } from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from '../reducers'
 
-import reducer from '../reducers';
-import state from './state';
+const middleware = [thunk];
 
-const store = createStore(reducer, state, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const initialState = {};
+// const store = createStore(reducer, state, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
+/* eslint-disable no-underscore-dangle */
+const store = createStore(
+  rootReducer, /* preloadedState, */
+  initialState,
+  compose(
+    applyMiddleware(...middleware),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
+);
+/* eslint-enable */
 export default store;
