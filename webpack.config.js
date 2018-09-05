@@ -45,17 +45,17 @@ module.exports = {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']
             },
-              // {
-              //   test: /\.(jpe?g|png|gif|svg|ico)$/i,
-              //   use: [
-              //     {
-              //       loader: "file-loader",
-              //       options: {
-              //         outputPath: "/build/"
-              //       }
-              //     }
-              //   ]
-              // }
+              {
+                test: /\.(jpe?g|png|gif|svg|ico)$/i,
+                use: [
+                  {
+                    loader: "file-loader",
+                    options: {
+                      outputPath: ""
+                    }
+                  }
+                ]
+              }
 
             // {
             //     test: /\.json$/,
