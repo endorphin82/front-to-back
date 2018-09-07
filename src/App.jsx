@@ -15,11 +15,10 @@ import Dashboard from "./components/dashboard/Dashboard";
 import {clearCurrentProfile} from "./actions/profileActions";
 import PrivateRoute from "./components/common/PrivateRoute";
 import CreateProfile from "./components/create-profile/CreateProfile";
+import { logoutUser } from "./actions/authActions";
+
 
 import './assets/app.css'
-
-
-
 
 // Check for token
 if (localStorage.jwtToken) {
