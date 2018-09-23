@@ -70,14 +70,6 @@ router.delete(
   '/:id',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-
-// Post.findById(req.param.id)
-//   .remove()
-//   .then(post => res.json({success: true}))
-//   .catch(err =>
-//     res.status(404).json({ nopostfound: 'No post found with that ID' })
-//   );
-
     Profile.findOne({ user: req.user.id }).then(profile => {
       Post.findById(req.params.id)
         .then(post => {
@@ -89,7 +81,7 @@ router.delete(
           }
 
           // Delete
-          post.deleteOne().then((req, res) => res.json({ success: true }));
+          post.remove().then(() => res.json({ success: true }));
         })
         .catch(err => res.status(404).json({ postnotfound: 'No post found' }));
     });
@@ -155,7 +147,7 @@ router.post(
           // Save
           post.save().then(post => res.json(post));
         })
-        .catch(err => res.status(404).json({ postnotfound: 'No unlike post found' }));
+        .catch(err => res.status(404).json({ postnotfound: 'No post found' }));
     });
   }
 );
@@ -190,7 +182,7 @@ router.post(
         // Save
         post.save().then(post => res.json(post));
       })
-      .catch(err => res.status(404).json({ postnotfound: 'No comment post found' }));
+      .catch(err => res.status(404).json({ postnotfound: 'No post found' }));
   }
 );
 
@@ -224,7 +216,7 @@ router.delete(
 
         post.save().then(post => res.json(post));
       })
-      .catch(err => res.status(404).json({ postnotfound: 'No comment post found' }));
+      .catch(err => res.status(404).json({ postnotfound: 'No post found' }));
   }
 );
 
