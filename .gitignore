@@ -39,3 +39,4 @@ jspm_packages
 # VS Code
 .vscode
 #/config/keys.js
+/config/keys_dev.js
